@@ -4,17 +4,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Caregiver Haven — Shared Journeys in Dementia Care</title>
-  <meta name="description" content="A compassionate, supportive community blog where caregivers share personal experiences, insights, and coping strategies for dementia care." />
+  <meta name="description" content="A compassionate community blog where caregivers share personal experiences and insights." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:ital,wght@0,400;0,700;1,300&display=swap" rel="stylesheet">
-
+  
   <style>
     :root {
-      --primary: #2d5a52;        /* Calming deep pine */
+      --primary: #2d5a52;
       --primary-hover: #224640;
-      --secondary: #eaf2ef;      /* Soft sage background */
-      --accent: #d97736;         /* Gentle warm amber */
+      --secondary: #eaf2ef;
+      --accent: #d97736;
       --text-main: #2b3534;
       --text-muted: #5f706e;
       --bg: #f9fbfb;
@@ -22,61 +22,24 @@
       --border: #dce6e3;
       --shadow: 0 4px 16px rgba(45, 90, 82, 0.08);
       --radius: 12px;
-      --danger-soft: #fdf2f2;
-      --danger-text: #9b1c1c;
+      --rose-alert: #e11d48;
+      --rose-bg: #fff1f2;
+      --rose-border: #fecdd3;
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', sans-serif; color: var(--text-main); background-color: var(--bg); line-height: 1.65; }
 
-    body {
-      font-family: 'Inter', sans-serif;
-      color: var(--text-main);
-      background-color: var(--bg);
-      line-height: 1.65;
-      scroll-behavior: smooth;
-    }
-
-    /* Header & Navigation */
-    header {
-      background: linear-gradient(135deg, var(--primary), #3b746a);
-      color: #ffffff;
-      padding: 3rem 1.5rem 2.5rem;
-      text-align: center;
-    }
-
-    .header-content {
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    header h1 {
-      font-family: 'Merriweather', serif;
-      font-size: 2.4rem;
-      font-weight: 700;
-      margin-bottom: 0.75rem;
-    }
-
-    header p {
-      font-size: 1.15rem;
-      opacity: 0.92;
-      line-height: 1.5;
-    }
-
-    /* Navigation Bar containing HELP ME */
+    /* Sticky Nav Bar */
     .nav-bar {
       background-color: #ffffff;
       border-bottom: 1px solid var(--border);
       position: sticky;
       top: 0;
       z-index: 100;
-      padding: 0.75rem 1.5rem;
+      padding: 0.85rem 1.5rem;
       box-shadow: 0 2px 8px rgba(0,0,0,0.03);
     }
-
     .nav-container {
       max-width: 1100px;
       margin: 0 auto;
@@ -84,7 +47,6 @@
       justify-content: space-between;
       align-items: center;
     }
-
     .nav-logo {
       font-family: 'Merriweather', serif;
       font-weight: 700;
@@ -93,59 +55,69 @@
       font-size: 1.15rem;
     }
 
-    .help-me-trigger {
-      background-color: #fff1f2;
-      color: #e11d48;
-      border: 1.5px solid #fecdd3;
-      padding: 0.5rem 1.1rem;
+    /* HELP ME Navigation Button */
+    .help-cta-btn {
+      background-color: var(--rose-bg);
+      color: var(--rose-alert);
+      border: 1.5px solid var(--rose-border);
+      padding: 0.55rem 1.25rem;
       border-radius: 30px;
       font-size: 0.88rem;
       font-weight: 700;
-      cursor: pointer;
-      display: flex;
+      display: inline-flex;
       align-items: center;
-      gap: 0.4rem;
+      gap: 0.45rem;
       text-decoration: none;
       transition: all 0.2s ease;
-      box-shadow: 0 2px 4px rgba(225, 29, 72, 0.08);
+      box-shadow: 0 2px 5px rgba(225, 29, 72, 0.12);
     }
-
-    .help-me-trigger:hover {
+    .help-cta-btn:hover {
       background-color: #ffe4e6;
       border-color: #fda4af;
-      transform: scale(1.02);
+      transform: translateY(-1px);
     }
 
-    /* Crisis Support Banner */
-    .support-bar {
-      background-color: #fef7ed;
-      border-bottom: 1px solid #fde68a;
-      padding: 0.75rem 1.5rem;
-      font-size: 0.9rem;
-      color: #92400e;
+    /* Header */
+    header {
+      background: linear-gradient(135deg, var(--primary), #3b746a);
+      color: #ffffff;
+      padding: 3.5rem 1.5rem 3rem;
       text-align: center;
     }
+    .header-content { max-width: 800px; margin: 0 auto; }
+    header h1 { font-family: 'Merriweather', serif; font-size: 2.3rem; margin-bottom: 0.75rem; }
+    header p { font-size: 1.1rem; opacity: 0.92; margin-bottom: 1.5rem; }
 
-    .support-bar a {
-      color: #b45309;
-      font-weight: 600;
-      text-decoration: underline;
+    /* Hero Alert Banner linking to Level 2 */
+    .hero-alert {
+      background: #ffffff;
+      border: 1.5px solid var(--rose-border);
+      padding: 1.25rem 1.75rem;
+      border-radius: var(--radius);
+      max-width: 1100px;
+      margin: -2rem auto 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: var(--shadow);
+      position: relative;
+      z-index: 10;
     }
+    .hero-alert-text h3 { font-size: 1.05rem; color: #9f1239; margin-bottom: 0.25rem; }
+    .hero-alert-text p { font-size: 0.88rem; color: var(--text-muted); }
 
     /* Layout */
     .container {
       max-width: 1100px;
-      margin: 2.5rem auto;
+      margin: 0 auto 3rem;
       padding: 0 1.5rem;
       display: grid;
-      grid-template-columns: 2fr 1.1fr;
+      grid-template-columns: 2fr 1.15fr;
       gap: 2.5rem;
     }
-
     @media (max-width: 860px) {
-      .container {
-        grid-template-columns: 1fr;
-      }
+      .container { grid-template-columns: 1fr; }
+      .hero-alert { flex-direction: column; text-align: center; gap: 1rem; margin: -1rem 1rem 2rem; }
     }
 
     /* Controls: Filter & Search */
@@ -157,54 +129,33 @@
       align-items: center;
       justify-content: space-between;
     }
-
     .search-input {
       flex: 1;
       min-width: 220px;
       padding: 0.65rem 1rem;
       border: 1px solid var(--border);
       border-radius: 8px;
-      font-size: 0.95rem;
+      font-size: 0.92rem;
       outline: none;
       background-color: #fff;
     }
-
-    .search-input:focus {
-      border-color: var(--primary);
-      box-shadow: 0 0 0 3px rgba(45, 90, 82, 0.15);
-    }
-
-    .category-pills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-    }
-
+    .search-input:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(45, 90, 82, 0.15); }
+    .category-pills { display: flex; flex-wrap: wrap; gap: 0.4rem; }
     .pill-btn {
       border: 1px solid var(--border);
       background-color: #fff;
       color: var(--text-muted);
-      padding: 0.35rem 0.85rem;
+      padding: 0.35rem 0.8rem;
       border-radius: 20px;
-      font-size: 0.85rem;
+      font-size: 0.82rem;
       cursor: pointer;
       font-weight: 500;
       transition: all 0.2s ease;
     }
+    .pill-btn.active, .pill-btn:hover { background-color: var(--primary); color: #fff; border-color: var(--primary); }
 
-    .pill-btn.active, .pill-btn:hover {
-      background-color: var(--primary);
-      color: #fff;
-      border-color: var(--primary);
-    }
-
-    /* Story Cards */
-    .stories-feed {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-    }
-
+    /* Story Feed */
+    .stories-feed { display: flex; flex-direction: column; gap: 1.5rem; }
     .story-card {
       background: var(--card-bg);
       border: 1px solid var(--border);
@@ -213,46 +164,19 @@
       box-shadow: var(--shadow);
       transition: transform 0.2s ease;
     }
-
-    .story-card:hover {
-      transform: translateY(-2px);
-    }
-
-    .story-meta {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      margin-bottom: 0.75rem;
-      font-size: 0.85rem;
-      color: var(--text-muted);
-    }
-
+    .story-card:hover { transform: translateY(-2px); }
+    .story-meta { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem; font-size: 0.82rem; color: var(--text-muted); }
     .badge {
       background-color: var(--secondary);
       color: var(--primary);
       font-weight: 600;
-      padding: 0.25rem 0.6rem;
+      padding: 0.2rem 0.55rem;
       border-radius: 6px;
       font-size: 0.75rem;
       text-transform: uppercase;
-      letter-spacing: 0.5px;
     }
-
-    .story-title {
-      font-family: 'Merriweather', serif;
-      font-size: 1.35rem;
-      color: var(--text-main);
-      margin-bottom: 0.75rem;
-      line-height: 1.4;
-    }
-
-    .story-body {
-      color: #3f4e4c;
-      font-size: 0.98rem;
-      white-space: pre-line;
-      margin-bottom: 1.25rem;
-    }
-
+    .story-title { font-family: 'Merriweather', serif; font-size: 1.3rem; margin-bottom: 0.75rem; }
+    .story-body { color: #3f4e4c; font-size: 0.96rem; white-space: pre-line; margin-bottom: 1.25rem; }
     .story-footer {
       display: flex;
       justify-content: space-between;
@@ -262,7 +186,6 @@
       font-size: 0.85rem;
       color: var(--text-muted);
     }
-
     .support-btn {
       background: none;
       border: 1px solid var(--border);
@@ -276,149 +199,10 @@
       font-weight: 600;
       transition: background-color 0.15s ease;
     }
+    .support-btn:hover { background-color: #fff6ee; }
 
-    .support-btn:hover {
-      background-color: #fff6ee;
-    }
-
-    /* "HELP ME" Burden Reduction Console (TABS) */
-    .help-section {
-      grid-column: 1 / -1; /* Stretch across the entire grid width */
-      background: #ffffff;
-      border: 1.5px solid #fecdd3;
-      border-radius: var(--radius);
-      padding: 2rem;
-      box-shadow: 0 10px 30px rgba(225, 29, 72, 0.05);
-      margin-bottom: 2rem;
-    }
-
-    .help-header {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      margin-bottom: 1.5rem;
-      border-bottom: 2px solid #ffe4e6;
-      padding-bottom: 0.75rem;
-    }
-
-    .help-header h2 {
-      font-family: 'Merriweather', serif;
-      font-size: 1.6rem;
-      color: #be123c;
-    }
-
-    .help-tabs-container {
-      display: grid;
-      grid-template-columns: 240px 1fr;
-      gap: 2rem;
-    }
-
-    @media (max-width: 768px) {
-      .help-tabs-container {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .tab-list {
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-    }
-
-    .tab-btn {
-      background: none;
-      border: 1px solid transparent;
-      padding: 0.85rem 1rem;
-      border-radius: 8px;
-      text-align: left;
-      font-family: inherit;
-      font-size: 0.92rem;
-      font-weight: 600;
-      color: var(--text-muted);
-      cursor: pointer;
-      transition: all 0.2s ease;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .tab-btn:hover {
-      background-color: #fff1f2;
-      color: #be123c;
-    }
-
-    .tab-btn.active {
-      background-color: #ffe4e6;
-      color: #be123c;
-      border-left: 4px solid #e11d48;
-    }
-
-    .tab-content {
-      display: none;
-      animation: fadeIn 0.3s ease;
-    }
-
-    .tab-content.active {
-      display: block;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(5px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .tab-content h3 {
-      font-family: 'Merriweather', serif;
-      font-size: 1.25rem;
-      color: #9f1239;
-      margin-bottom: 0.75rem;
-    }
-
-    .tab-content p {
-      color: #4c5957;
-      font-size: 0.95rem;
-      margin-bottom: 1.25rem;
-    }
-
-    .relief-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.25rem;
-    }
-
-    .relief-card {
-      background: #fff8f8;
-      border: 1px solid #ffe4e6;
-      border-radius: 8px;
-      padding: 1.25rem;
-    }
-
-    .relief-card h4 {
-      font-size: 1rem;
-      color: #be123c;
-      margin-bottom: 0.5rem;
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-    }
-
-    .relief-card ul {
-      padding-left: 1.2rem;
-      font-size: 0.88rem;
-      color: #3b504c;
-    }
-
-    .relief-card li {
-      margin-bottom: 0.5rem;
-    }
-
-    /* Sidebar / Submission Form */
-    .sidebar {
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-    }
-
+    /* Sidebar Form */
+    .sidebar { display: flex; flex-direction: column; gap: 2rem; }
     .form-panel {
       background: var(--card-bg);
       border: 1px solid var(--border);
@@ -426,32 +210,10 @@
       padding: 1.75rem;
       box-shadow: var(--shadow);
     }
-
-    .form-panel h2 {
-      font-family: 'Merriweather', serif;
-      font-size: 1.25rem;
-      color: var(--primary);
-      margin-bottom: 0.5rem;
-    }
-
-    .form-panel p {
-      font-size: 0.88rem;
-      color: var(--text-muted);
-      margin-bottom: 1.25rem;
-    }
-
-    .form-group {
-      margin-bottom: 1rem;
-    }
-
-    .form-group label {
-      display: block;
-      font-size: 0.85rem;
-      font-weight: 600;
-      margin-bottom: 0.35rem;
-      color: var(--text-main);
-    }
-
+    .form-panel h2 { font-family: 'Merriweather', serif; font-size: 1.25rem; color: var(--primary); margin-bottom: 0.4rem; }
+    .form-panel p { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.25rem; }
+    .form-group { margin-bottom: 1rem; }
+    .form-group label { display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.35rem; }
     .form-control {
       width: 100%;
       padding: 0.65rem 0.85rem;
@@ -461,17 +223,8 @@
       font-size: 0.9rem;
       outline: none;
     }
-
-    .form-control:focus {
-      border-color: var(--primary);
-      box-shadow: 0 0 0 3px rgba(45, 90, 82, 0.12);
-    }
-
-    textarea.form-control {
-      resize: vertical;
-      min-height: 120px;
-    }
-
+    .form-control:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(45, 90, 82, 0.12); }
+    textarea.form-control { resize: vertical; min-height: 110px; }
     .btn-submit {
       width: 100%;
       background-color: var(--primary);
@@ -484,195 +237,45 @@
       cursor: pointer;
       transition: background 0.2s ease;
     }
+    .btn-submit:hover { background-color: var(--primary-hover); }
 
-    .btn-submit:hover {
-      background-color: var(--primary-hover);
-    }
-
-    /* Community Guidelines Card */
-    .guidelines-card {
-      background: var(--secondary);
-      border-radius: var(--radius);
-      padding: 1.5rem;
-      font-size: 0.88rem;
-      border-left: 4px solid var(--primary);
-    }
-
-    .guidelines-card h3 {
-      font-size: 1rem;
-      color: var(--primary);
-      margin-bottom: 0.5rem;
-    }
-
-    .guidelines-card ul {
-      padding-left: 1.2rem;
-      color: #3b504c;
-    }
-
-    .guidelines-card li {
-      margin-bottom: 0.4rem;
-    }
-
-    /* Footer */
-    footer {
-      background-color: #20312f;
-      color: #b5c7c4;
-      text-align: center;
-      padding: 2.5rem 1.5rem;
-      font-size: 0.85rem;
-      margin-top: 4rem;
-    }
-
-    footer a {
-      color: #eaf2ef;
-      text-decoration: underline;
-    }
+    footer { background-color: #20312f; color: #b5c7c4; text-align: center; padding: 2.5rem 1.5rem; font-size: 0.85rem; }
   </style>
 </head>
 <body>
 
-  <!-- Sticky Nav containing HELP ME trigger -->
+  <!-- Level 1 Navbar with link to Level 2 (HELP ME) -->
   <nav class="nav-bar">
     <div class="nav-container">
-      <a href="#" class="nav-logo">Caregiver Haven</a>
-      <a href="#helpMeConsole" class="help-me-trigger">
-        <span>🛟</span> HELP ME (Reduce Burden)
+      <a href="index.html" class="nav-logo">Caregiver Haven</a>
+      <a href="HELP_ME/index.html" class="help-cta-btn">
+        <span>🛟</span> HELP ME (Burden Relief & Videos)
       </a>
     </div>
   </nav>
 
-  <!-- Crisis & Helplines Notification -->
-  <aside class="support-bar">
-    Need immediate caregiving advice or someone to talk to? Call the
-    <strong>Alzheimer's Association 24/7 Helpline</strong> at
-    <a href="tel:18002723900">1-800-272-3900</a> (Toll-free).
-  </aside>
-
-  <!-- Header -->
   <header>
     <div class="header-content">
       <h1>Caregiver Haven</h1>
-      <p>A gentle space for family, loved ones, and professional caregivers navigating Alzheimer's and dementia. Share your milestones, grief, laughter, and hard-earned wisdom.</p>
+      <p>A gentle space for loved ones and professional caregivers navigating Alzheimer's and dementia. Share your milestones, grief, and daily wisdom.</p>
     </div>
   </header>
 
-  <!-- Main Container -->
+  <!-- Highlight Banner Linking to HELP_ME -->
+  <section class="hero-alert">
+    <div class="hero-alert-text">
+      <h3>Overwhelmed, exhausted, or facing difficult behaviors today?</h3>
+      <p>Access emergency care helplines, evidence-based coping tips, and video guides on managing dementia.</p>
+    </div>
+    <a href="HELP_ME/index.html" class="help-cta-btn">
+      Open Help Center & Video Hub &rarr;
+    </a>
+  </section>
+
   <div class="container">
-
-    <!-- INTERACTIVE "HELP ME" CRISIS CONSOLE (TABS) -->
-    <section class="help-section" id="helpMeConsole">
-      <div class="help-header">
-        <span style="font-size: 1.8rem;">🛟</span>
-        <h2>Burden Reduction & Self-Care Hub</h2>
-      </div>
-
-      <div class="help-tabs-container">
-        <!-- Vertical Tab List -->
-        <nav class="tab-list" aria-label="Caregiver relief categories">
-          <button class="tab-btn active" onclick="switchTab(event, 'immediate')">💡 Immediate Relief</button>
-          <button class="tab-btn" onclick="switchTab(event, 'respite')">🏡 Respite Care Options</button>
-          <button class="tab-btn" onclick="switchTab(event, 'micro')">⏱️ Micro-Breaks</button>
-          <button class="tab-btn" onclick="switchTab(event, 'professional')">🤝 Professional Support</button>
-        </nav>
-
-        <!-- Tab Content: Immediate Relief -->
-        <div id="immediate" class="tab-content active">
-          <h3>Easing Today's Cognitive Load</h3>
-          <p>Caregiver burnout often stems from decision fatigue. Simplifying the home dynamic can immediately lift some weight from your shoulders.</p>
-          <div class="relief-grid">
-            <div class="relief-card">
-              <h4>🎯 Simplify Routines</h4>
-              <ul>
-                <li><strong>The 2-Choice Rule:</strong> Avoid open questions. Ask "Do you want chicken or soup?" rather than "What do you want for dinner?"</li>
-                <li><strong>Consistent Structure:</strong> Maintain fixed timings for meals and hygiene to prevent evening agitation (sundowning).</li>
-              </ul>
-            </div>
-            <div class="relief-card">
-              <h4>🛠️ Outsource Small Decisions</h4>
-              <ul>
-                <li><strong>Meal Prep:</strong> Utilize frozen home deliveries to save hours of daily cleanup and shopping.</li>
-                <li><strong>Automated Medication:</strong> Use smart pill dispensers to eliminate the stress of tracking daily dosages.</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <!-- Tab Content: Respite Options -->
-        <div id="respite" class="tab-content">
-          <h3>Securing Temporary Time Off</h3>
-          <p>You cannot care for anyone else if you run completely out of fuel. Respite options allow you to take brief, guilt-free breaks.</p>
-          <div class="relief-grid">
-            <div class="relief-card">
-              <h4>☀️ Adult Day Care Centers</h4>
-              <ul>
-                <li><strong>Social Stimulation:</strong> Centers offer structured safe activities like music, crafts, and gentle mobility.</li>
-                <li><strong>Reliable Off-Hours:</strong> Gives you 4-8 hours to sleep, run personal errands, or work.</li>
-              </ul>
-            </div>
-            <div class="relief-card">
-              <h4>🛌 Overnight Respite</h4>
-              <ul>
-                <li><strong>Residential Stays:</strong> Assisted living homes offer short-term (e.g., weekend) stays for patients.</li>
-                <li><strong>Regain Sleep:</strong> Excellent for planning family vacations or when you're physically exhausted.</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <!-- Tab Content: Micro-Breaks -->
-        <div id="micro" class="tab-content">
-          <h3>Self-Preservation in Under 10 Minutes</h3>
-          <p>When you cannot leave the house, small pockets of intentional calmness can trigger the body's parasympathetic relaxation response.</p>
-          <div class="relief-grid">
-            <div class="relief-card">
-              <h4>🧘 5-Minute Box Breathing</h4>
-              <ul>
-                <li><strong>How:</strong> Inhale for 4s, hold for 4s, exhale for 4s, hold for 4s.</li>
-                <li><strong>The Why:</strong> Instantly lowers high cortisol and slows your heart rate.</li>
-              </ul>
-            </div>
-            <div class="relief-card">
-              <h4>🎧 sensory Escape</h4>
-              <ul>
-                <li><strong>Audio:</strong> Put on noise-canceling headphones for 5 minutes with natural white noise or soft instrumentals.</li>
-                <li><strong>Step Away:</strong> Step into a separate room to catch your breath. Safety is ensured if the patient is in a safe space.</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <!-- Tab Content: Professional Help -->
-        <div id="professional" class="tab-content">
-          <h3>Connecting to the Care Network</h3>
-          <p>Admitting that you need assistance is not a failure; it is a sign of high-quality, sustainable caregiving.</p>
-          <div class="relief-grid">
-            <div class="relief-card">
-              <h4>📋 Care Coordinators</h4>
-              <ul>
-                <li><strong>Navigation:</strong> Professional consultants who evaluate local subsidies, insurance options, and organize resources.</li>
-              </ul>
-            </div>
-            <div class="relief-card">
-              <h4>👥 Local Support Circles</h4>
-              <ul>
-                <li><strong>Shared Realities:</strong> Find local caregiver support groups. Hearing others share the exact same experiences validates your struggles.</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Left Column: Story Feed & Filters -->
     <main>
       <div class="controls">
-        <input
-          type="search"
-          id="searchInput"
-          class="search-input"
-          placeholder="Search reflections (e.g. sundowning, music, routine)..."
-          aria-label="Search posts"
-        />
+        <input type="search" id="searchInput" class="search-input" placeholder="Search experiences (e.g. sundowning, music, routine)..." aria-label="Search posts" />
         <div class="category-pills" id="categoryPills">
           <button class="pill-btn active" data-category="All">All Topics</button>
           <button class="pill-btn" data-category="Daily Life">Daily Life</button>
@@ -681,26 +284,18 @@
           <button class="pill-btn" data-category="Practical Tips">Practical Tips</button>
         </div>
       </div>
-
-      <section class="stories-feed" id="storiesFeed" aria-label="Caregiver Story Feed">
-        <!-- Dynamic stories populated by JavaScript -->
-      </section>
+      <section class="stories-feed" id="storiesFeed"></section>
     </main>
 
-    <!-- Right Column: Submission & Resources -->
     <aside class="sidebar">
-
-      <!-- Submission Form -->
       <section class="form-panel">
         <h2>Share Your Story</h2>
-        <p>Your reflections remind other caregivers they are not alone. All posts remain saved in your browser session.</p>
-
+        <p>Your reflections help others feel less alone. Entries are saved locally in your browser.</p>
         <form id="storyForm">
           <div class="form-group">
             <label for="authorName">Your Name or Alias</label>
             <input type="text" id="authorName" class="form-control" placeholder="e.g. Sarah (Daughter & Caregiver)" required />
           </div>
-
           <div class="form-group">
             <label for="category">Category</label>
             <select id="category" class="form-control">
@@ -710,45 +305,25 @@
               <option value="Practical Tips">Practical Tips</option>
             </select>
           </div>
-
           <div class="form-group">
             <label for="postTitle">Title</label>
-            <input type="text" id="postTitle" class="form-control" placeholder="A meaningful title..." required />
+            <input type="text" id="postTitle" class="form-control" placeholder="A meaningful headline..." required />
           </div>
-
           <div class="form-group">
-            <label for="postContent">Your Experience</label>
-            <textarea id="postContent" class="form-control" placeholder="What happened today? What did you learn, or what was challenging?" required></textarea>
+            <label for="postContent">Your Reflection</label>
+            <textarea id="postContent" class="form-control" placeholder="What happened today? What brought relief, or what was challenging?" required></textarea>
           </div>
-
           <button type="submit" class="btn-submit">Publish Reflection</button>
         </form>
       </section>
-
-      <!-- Supportive Guidelines -->
-      <section class="guidelines-card">
-        <h3>Community Pillars</h3>
-        <ul>
-          <li><strong>No judgment:</strong> Caregiving brings exhaustion, grief, and anger. All feelings are valid here.</li>
-          <li><strong>Protect privacy:</strong> Refrain from sharing full legal names or medical record details.</li>
-          <li><strong>Validation over correction:</strong> What works for one stage may differ for another. Listen with empathy.</li>
-        </ul>
-      </section>
-
     </aside>
   </div>
 
-  <!-- Footer -->
   <footer>
-    <p>&copy; Caregiver Haven. Hosted with care on GitHub Pages.</p>
-    <p style="margin-top: 0.5rem; font-size: 0.8rem; opacity: 0.8;">
-      Disclaimer: This website offers peer support and personal experiences, not licensed medical advice. Consult medical professionals for clinical diagnoses and medication changes.
-    </p>
+    <p>&copy; Caregiver Haven. Hosted on GitHub Pages. Dedicated to supporting dementia caregivers worldwide.</p>
   </footer>
 
-  <!-- Client-side Logic -->
   <script>
-    // Initial Curated Caregiver Reflections
     const initialStories = [
       {
         id: 1,
@@ -756,8 +331,8 @@
         author: "Marcus (Caring for Dad)",
         category: "Practical Tips",
         date: "Oct 12, 2026",
-        content: "Sundowning at 5:00 PM used to trigger intense pacing and anxiety for my father. Last week, instead of arguing or trying to explain that he was already home, I turned on a playlist of Benny Goodman. Within 10 minutes, his agitation slowed. He started tapping his foot, and we danced in the kitchen while dinner warmed. It felt like getting a piece of him back.",
-        supports: 14
+        content: "Sundowning at 5:00 PM used to trigger pacing and distress. Last week, instead of trying to convince him he was already home, I played a playlist of Benny Goodman. Within 10 minutes, his agitation eased and he started tapping along in the kitchen.",
+        supports: 18
       },
       {
         id: 2,
@@ -765,26 +340,15 @@
         author: "Elena (Spouse Caregiver)",
         category: "Communication",
         date: "Oct 8, 2026",
-        content: "For months, I corrected my husband when he asked when his mother was coming over (she passed 25 years ago). Every time, he grieved her loss all over again. A social worker taught me validation therapy: instead of saying 'she's gone,' I now say 'She loved you so much, didn't she? Tell me your favorite story about her.' It replaced his sorrow with warmth.",
-        supports: 27
-      },
-      {
-        id: 3,
-        title: "The hidden grief of losing someone who is still physically here",
-        author: "Anonymous",
-        category: "Emotional Health",
-        date: "Sep 29, 2026",
-        content: "Ambiguous loss is something non-caregivers struggle to understand. You are grieving someone every day while still helping them eat lunch. If you cried in your car today before walking into the house, I see you. You are doing an extraordinary job under impossible circumstances.",
-        supports: 42
+        content: "For months, I corrected my husband when he asked for his late mother. A nurse taught me validation: instead of saying 'she is gone,' I now ask 'What was your favorite dinner she made for you?' It replaced his grief with comfort.",
+        supports: 32
       }
     ];
 
-    // Storage Management
     function getStoredStories() {
       const stored = localStorage.getItem('caregiver_stories');
       return stored ? JSON.parse(stored) : initialStories;
     }
-
     function saveStories(stories) {
       localStorage.setItem('caregiver_stories', JSON.stringify(stories));
     }
@@ -793,63 +357,35 @@
     let activeCategory = 'All';
     let searchQuery = '';
 
-    // DOM Elements
     const feedContainer = document.getElementById('storiesFeed');
     const storyForm = document.getElementById('storyForm');
     const searchInput = document.getElementById('searchInput');
     const categoryPills = document.getElementById('categoryPills');
 
-    // Tab Switching Functionality
-    window.switchTab = function(event, tabId) {
-      // Deactivate all tab buttons
-      const tabButtons = document.querySelectorAll('.tab-btn');
-      tabButtons.forEach(btn => btn.classList.remove('active'));
-
-      // Hide all tab contents
-      const tabContents = document.querySelectorAll('.tab-content');
-      tabContents.forEach(content => content.classList.remove('active'));
-
-      // Activate current button and selected tab content
-      event.currentTarget.classList.add('active');
-      document.getElementById(tabId).classList.add('active');
-    }
-
-    // Render Stories
     function renderStories() {
       feedContainer.innerHTML = '';
-
       const filtered = currentStories.filter(story => {
         const matchesCategory = (activeCategory === 'All' || story.category === activeCategory);
-        const matchesSearch = story.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                              story.content.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                              story.author.toLowerCase().includes(searchQuery.toLowerCase());
+        const matchesSearch = story.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
+                              story.content.toLowerCase().includes(searchQuery.toLowerCase());
         return matchesCategory && matchesSearch;
       });
-
-      if (filtered.length === 0) {
-        feedContainer.innerHTML = `
-          <div style="text-align: center; padding: 3rem; background: #fff; border-radius: 12px; border: 1px solid var(--border);">
-            <p style="color: var(--text-muted); font-size: 1.1rem;">No reflections found matching your criteria.</p>
-          </div>
-        `;
-        return;
-      }
 
       filtered.forEach(story => {
         const card = document.createElement('article');
         card.className = 'story-card';
         card.innerHTML = `
           <div class="story-meta">
-            <span class="badge">${escapeHtml(story.category)}</span>
-            <span>By <strong>${escapeHtml(story.author)}</strong></span>
+            <span class="badge">${story.category}</span>
+            <span>By <strong>${story.author}</strong></span>
             <span>&bull;</span>
-            <time>${escapeHtml(story.date)}</time>
+            <time>${story.date}</time>
           </div>
-          <h2 class="story-title">${escapeHtml(story.title)}</h2>
-          <div class="story-body">${escapeHtml(story.content)}</div>
+          <h2 class="story-title">${story.title}</h2>
+          <div class="story-body">${story.content}</div>
           <div class="story-footer">
             <span>Dementia Care Journal</span>
-            <button class="support-btn" onclick="sendSupport(${story.id})" aria-label="Send strength to this caregiver">
+            <button class="support-btn" onclick="sendSupport(${story.id})">
               <span>&#9829;</span>
               <span>Sending Strength (${story.supports || 0})</span>
             </button>
@@ -859,22 +395,14 @@
       });
     }
 
-    // Reaction handler
     window.sendSupport = function(id) {
-      currentStories = currentStories.map(story => {
-        if (story.id === id) {
-          return { ...story, supports: (story.supports || 0) + 1 };
-        }
-        return story;
-      });
+      currentStories = currentStories.map(s => s.id === id ? { ...s, supports: (s.supports || 0) + 1 } : s);
       saveStories(currentStories);
       renderStories();
     };
 
-    // Form Submission
     storyForm.addEventListener('submit', (e) => {
       e.preventDefault();
-
       const newStory = {
         id: Date.now(),
         author: document.getElementById('authorName').value.trim(),
@@ -884,37 +412,12 @@
         date: new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }),
         supports: 1
       };
-
       currentStories.unshift(newStory);
       saveStories(currentStories);
       storyForm.reset();
       renderStories();
     });
 
-    // Search and Filtering
     searchInput.addEventListener('input', (e) => {
       searchQuery = e.target.value;
-      renderStories();
-    });
-
-    categoryPills.addEventListener('click', (e) => {
-      if (e.target.classList.contains('pill-btn')) {
-        document.querySelectorAll('.pill-btn').forEach(btn => btn.classList.remove('active'));
-        e.target.classList.add('active');
-        activeCategory = e.target.getAttribute('data-category');
-        renderStories();
-      }
-    });
-
-    // Utility: XSS prevention
-    function escapeHtml(string) {
-      const div = document.createElement('div');
-      div.innerText = string;
-      return div.innerHTML;
-    }
-
-    // Initialize
-    renderStories();
-  </script>
-</body>
-</html>
+      rende
