@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Caregiver Haven — Shared Journeys in Dementia Care</title>
+  <meta name="description" content="A compassionate, supportive community blog where caregivers share personal experiences, insights, and coping strategies for dementia care." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:ital,wght@0,400;0,700;1,300&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --primary: #2d5a52;        /* Calming deep pine */
+      --primary-hover: #224640;
+      --secondary: #eaf2ef;      /* Soft sage background */
+      --accent: #d97736;         /* Gentle warm amber */
+      --text-main: #2b3534;
+      --text-muted: #5f706e;
+      --bg: #f9fbfb;
+      --card-bg: #ffffff;
+      --border: #dce6e3;
+      --shadow: 0 4px 16px rgba(45, 90, 82, 0.08);
+      --radius: 12px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text-main);
+      background-color: var(--bg);
+      line-height: 1.65;
+    }
+
+    /* Header & Navigation */
+    header {
+      background: linear-gradient(135deg, var(--primary), #3b746a);
+      color: #ffffff;
+      padding: 3rem 1.5rem 2.5rem;
+      text-align: center;
+    }
+
+    .header-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    header h1 {
+      font-family: 'Merriweather', serif;
+      font-size: 2.4rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+    }
+
+    header p {
+      font-size: 1.15rem;
+      opacity: 0.92;
+      line-height: 1.5;
+    }
+
+    /* Crisis Support Banner */
+    .support-bar {
+      background-color: #fef7ed;
+      border-bottom: 1px solid #fde68a;
+      padding: 0.75rem 1.5rem;
+      font-size: 0.9rem;
+      color: #92400e;
+      text-align: center;
+    }
+
+    .support-bar a {
+      color: #b45309;
+      font-weight: 600;
+      text-decoration: underline;
+    }
+
+    /* Layout */
+    .container {
+      max-width: 1100px;
+      margin: 2.5rem auto;
+      padding: 0 1.5rem;
+      display: grid;
+      grid-template-columns: 2fr 1.1fr;
+      gap: 2.5rem;
+    }
+
+    @media (max-width: 860px) {
+      .container {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Controls: Filter & Search */
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .search-input {
+      flex: 1;
+      min-width: 220px;
+      padding: 0.65rem 1rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 0.95rem;
+      outline: none;
+      background-color: #fff;
+    }
+
+    .search-input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(45, 90, 82, 0.15);
+    }
+
+    .category-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .pill-btn {
+      border: 1px solid var(--border);
+      background-color: #fff;
+      color: var(--text-muted);
+      padding: 0.35rem 0.85rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      cursor: pointer;
+      font-weight: 500;
+      transition: all 0.2s ease;
+    }
+
+    .pill-btn.active, .pill-btn:hover {
+      background-color: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+    }
+
+    /* Story Cards */
+    .stories-feed {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .story-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.75rem;
+      box-shadow: var(--shadow);
+      transition: transform 0.2s ease;
+    }
+
+    .story-card:hover {
+      transform: translateY(-2px);
+    }
+
+    .story-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 0.75rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .badge {
+      background-color: var(--secondary);
+      color: var(--primary);
+      font-weight: 600;
+      padding: 0.25rem 0.6rem;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .story-title {
+      font-family: 'Merriweather', serif;
+      font-size: 1.35rem;
+      color: var(--text-main);
+      margin-bottom: 0.75rem;
+      line-height: 1.4;
+    }
+
+    .story-body {
+      color: #3f4e4c;
+      font-size: 0.98rem;
+      white-space: pre-line;
+      margin-bottom: 1.25rem;
+    }
+
+    .story-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid #f0f4f3;
+      padding-top: 1rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .support-btn {
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 0.3rem 0.75rem;
+      color: var(--accent);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-weight: 600;
+      transition: background-color 0.15s ease;
+    }
+
+    .support-btn:hover {
+      background-color: #fff6ee;
+    }
+
+    /* Sidebar / Submission Form */
+    .sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .form-panel {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.75rem;
+      box-shadow: var(--shadow);
+    }
+
+    .form-panel h2 {
+      font-family: 'Merriweather', serif;
+      font-size: 1.25rem;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .form-panel p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-bottom: 1.25rem;
+    }
+
+    .form-group {
+      margin-bottom: 1rem;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 0.35rem;
+      color: var(--text-main);
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 0.65rem 0.85rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 0.9rem;
+      outline: none;
+    }
+
+    .form-control:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(45, 90, 82, 0.12);
+    }
+
+    textarea.form-control {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .btn-submit {
+      width: 100%;
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      padding: 0.85rem;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+
+    .btn-submit:hover {
+      background-color: var(--primary-hover);
+    }
+
+    /* Community Guidelines Card */
+    .guidelines-card {
+      background: var(--secondary);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      font-size: 0.88rem;
+      border-left: 4px solid var(--primary);
+    }
+
+    .guidelines-card h3 {
+      font-size: 1rem;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .guidelines-card ul {
+      padding-left: 1.2rem;
+      color: #3b504c;
+    }
+
+    .guidelines-card li {
+      margin-bottom: 0.4rem;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #20312f;
+      color: #b5c7c4;
+      text-align: center;
+      padding: 2.5rem 1.5rem;
+      font-size: 0.85rem;
+      margin-top: 4rem;
+    }
+
+    footer a {
+      color: #eaf2ef;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Crisis & Helplines Notification -->
+  <aside class="support-bar">
+    Need immediate caregiving advice or someone to talk to? Call the 
+    <strong>Alzheimer's Association 24/7 Helpline</strong> at 
+    <a href="tel:18002723900">1-800-272-3900</a> (Toll-free).
+  </aside>
+
+  <!-- Header -->
+  <header>
+    <div class="header-content">
+      <h1>Caregiver Haven</h1>
+      <p>A gentle space for family, loved ones, and professional caregivers navigating Alzheimer's and dementia. Share your milestones, grief, laughter, and hard-earned wisdom.</p>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <div class="container">
+    
+    <!-- Left Column: Story Feed & Filters -->
+    <main>
+      <div class="controls">
+        <input 
+          type="search" 
+          id="searchInput" 
+          class="search-input" 
+          placeholder="Search reflections (e.g. sundowning, music, routine)..." 
+          aria-label="Search posts"
+        />
+        <div class="category-pills" id="categoryPills">
+          <button class="pill-btn active" data-category="All">All Topics</button>
+          <button class="pill-btn" data-category="Daily Life">Daily Life</button>
+          <button class="pill-btn" data-category="Emotional Health">Emotional Health</button>
+          <button class="pill-btn" data-category="Communication">Communication</button>
+          <button class="pill-btn" data-category="Practical Tips">Practical Tips</button>
+        </div>
+      </div>
+
+      <section class="stories-feed" id="storiesFeed" aria-label="Caregiver Story Feed">
+        <!-- Dynamic stories populated by JavaScript -->
+      </section>
+    </main>
+
+    <!-- Right Column: Submission & Resources -->
+    <aside class="sidebar">
+      
+      <!-- Submission Form -->
+      <section class="form-panel">
+        <h2>Share Your Story</h2>
+        <p>Your reflections remind other caregivers they are not alone. All posts remain saved in your browser session.</p>
+        
+        <form id="storyForm">
+          <div class="form-group">
+            <label for="authorName">Your Name or Alias</label>
+            <input type="text" id="authorName" class="form-control" placeholder="e.g. Sarah (Daughter & Caregiver)" required />
+          </div>
+
+          <div class="form-group">
+            <label for="category">Category</label>
+            <select id="category" class="form-control">
+              <option value="Daily Life">Daily Life</option>
+              <option value="Communication">Communication</option>
+              <option value="Emotional Health">Emotional Health</option>
+              <option value="Practical Tips">Practical Tips</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="postTitle">Title</label>
+            <input type="text" id="postTitle" class="form-control" placeholder="A meaningful title..." required />
+          </div>
+
+          <div class="form-group">
+            <label for="postContent">Your Experience</label>
+            <textarea id="postContent" class="form-control" placeholder="What happened today? What did you learn, or what was challenging?" required></textarea>
+          </div>
+
+          <button type="submit" class="btn-submit">Publish Reflection</button>
+        </form>
+      </section>
+
+      <!-- Supportive Guidelines -->
+      <section class="guidelines-card">
+        <h3>Community Pillars</h3>
+        <ul>
+          <li><strong>No judgment:</strong> Caregiving brings exhaustion, grief, and anger. All feelings are valid here.</li>
+          <li><strong>Protect privacy:</strong> Refrain from sharing full legal names or medical record details.</li>
+          <li><strong>Validation over correction:</strong> What works for one stage may differ for another. Listen with empathy.</li>
+        </ul>
+      </section>
+
+    </aside>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; Caregiver Haven. Hosted with care on GitHub Pages.</p>
+    <p style="margin-top: 0.5rem; font-size: 0.8rem; opacity: 0.8;">
+      Disclaimer: This website offers peer support and personal experiences, not licensed medical advice. Consult medical professionals for clinical diagnoses and medication changes.
+    </p>
+  </footer>
+
+  <!-- Client-side Logic -->
+  <script>
+    // Initial Curated Caregiver Reflections
+    const initialStories = [
+      {
+        id: 1,
+        title: "How 1950s Big Band music turned evening sundowning around",
+        author: "Marcus (Caring for Dad)",
+        category: "Practical Tips",
+        date: "Oct 12, 2026",
+        content: "Sundowning at 5:00 PM used to trigger intense pacing and anxiety for my father. Last week, instead of arguing or trying to explain that he was already home, I turned on a playlist of Benny Goodman. Within 10 minutes, his agitation slowed. He started tapping his foot, and we danced in the kitchen while dinner warmed. It felt like getting a piece of him back.",
+        supports: 14
+      },
+      {
+        id: 2,
+        title: "Learning the art of 'Therapeutic Fibbing' without guilt",
+        author: "Elena (Spouse Caregiver)",
+        category: "Communication",
+        date: "Oct 8, 2026",
+        content: "For months, I corrected my husband when he asked when his mother was coming over (she passed 25 years ago). Every time, he grieved her loss all over again. A social worker taught me validation therapy: instead of saying 'she's gone,' I now say 'She loved you so much, didn't she? Tell me your favorite story about her.' It replaced his sorrow with warmth.",
+        supports: 27
+      },
+      {
+        id: 3,
+        title: "The hidden grief of losing someone who is still physically here",
+        author: "Anonymous",
+        category: "Emotional Health",
+        date: "Sep 29, 2026",
+        content: "Ambiguous loss is something non-caregivers struggle to understand. You are grieving someone every day while still helping them eat lunch. If you cried in your car today before walking into the house, I see you. You are doing an extraordinary job under impossible circumstances.",
+        supports: 42
+      }
+    ];
+
+    // Storage Management
+    function getStoredStories() {
+      const stored = localStorage.getItem('caregiver_stories');
+      return stored ? JSON.parse(stored) : initialStories;
+    }
+
+    function saveStories(stories) {
+      localStorage.setItem('caregiver_stories', JSON.stringify(stories));
+    }
+
+    let currentStories = getStoredStories();
+    let activeCategory = 'All';
+    let searchQuery = '';
+
+    // DOM Elements
+    const feedContainer = document.getElementById('storiesFeed');
+    const storyForm = document.getElementById('storyForm');
+    const searchInput = document.getElementById('searchInput');
+    const categoryPills = document.getElementById('categoryPills');
+
+    // Render Stories
+    function renderStories() {
+      feedContainer.innerHTML = '';
+
+      const filtered = currentStories.filter(story => {
+        const matchesCategory = (activeCategory === 'All' || story.category === activeCategory);
+        const matchesSearch = story.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
+                              story.content.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                              story.author.toLowerCase().includes(searchQuery.toLowerCase());
+        return matchesCategory && matchesSearch;
+      });
+
+      if (filtered.length === 0) {
+        feedContainer.innerHTML = `
+          <div style="text-align: center; padding: 3rem; background: #fff; border-radius: 12px; border: 1px solid var(--border);">
+            <p style="color: var(--text-muted); font-size: 1.1rem;">No reflections found matching your criteria.</p>
+          </div>
+        `;
+        return;
+      }
+
+      filtered.forEach(story => {
+        const card = document.createElement('article');
+        card.className = 'story-card';
+        card.innerHTML = `
+          <div class="story-meta">
+            <span class="badge">${escapeHtml(story.category)}</span>
+            <span>By <strong>${escapeHtml(story.author)}</strong></span>
+            <span>&bull;</span>
+            <time>${escapeHtml(story.date)}</time>
+          </div>
+          <h2 class="story-title">${escapeHtml(story.title)}</h2>
+          <div class="story-body">${escapeHtml(story.content)}</div>
+          <div class="story-footer">
+            <span>Dementia Care Journal</span>
+            <button class="support-btn" onclick="sendSupport(${story.id})" aria-label="Send strength to this caregiver">
+              <span>&#9829;</span>
+              <span>Sending Strength (${story.supports || 0})</span>
+            </button>
+          </div>
+        `;
+        feedContainer.appendChild(card);
+      });
+    }
+
+    // Reaction handler
+    window.sendSupport = function(id) {
+      currentStories = currentStories.map(story => {
+        if (story.id === id) {
+          return { ...story, supports: (story.supports || 0) + 1 };
+        }
+        return story;
+      });
+      saveStories(currentStories);
+      renderStories();
+    };
+
+    // Form Submission
+    storyForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const newStory = {
+        id: Date.now(),
+        author: document.getElementById('authorName').value.trim(),
+        category: document.getElementById('category').value,
+        title: document.getElementById('postTitle').value.trim(),
+        content: document.getElementById('postContent').value.trim(),
+        date: new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }),
+        supports: 1
+      };
+
+      currentStories.unshift(newStory);
+      saveStories(currentStories);
+      storyForm.reset();
+      renderStories();
+    });
+
+    // Search and Filtering
+    searchInput.addEventListener('input', (e) => {
+      searchQuery = e.target.value;
+      renderStories();
+    });
+
+    categoryPills.addEventListener('click', (e) => {
+      if (e.target.classList.contains('pill-btn')) {
+        document.querySelectorAll('.pill-btn').forEach(btn => btn.classList.remove('active'));
+        e.target.classList.add('active');
+        activeCategory = e.target.getAttribute('data-category');
+        renderStories();
+      }
+    });
+
+    // Utility: XSS prevention
+    function escapeHtml(string) {
+      const div = document.createElement('div');
+      div.innerText = string;
+      return div.innerHTML;
+    }
+
+    // Initialize
+    renderStories();
+  </script>
+</body>
+</html>
