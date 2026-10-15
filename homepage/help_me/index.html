@@ -22,6 +22,10 @@
       --danger-border: #fecdd3;
       --radius: 12px;
       --yt-red: #ff0000;
+      
+      /* Game Theme */
+      --game-cube: #d97736;
+      --game-bg: #1e293b;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -223,6 +227,100 @@
     .yt-title { font-size: 0.95rem; font-weight: 700; color: var(--text-main); line-height: 1.35; margin-bottom: 0.4rem; }
     .yt-channel { font-size: 0.82rem; color: var(--text-muted); margin-top: auto; }
 
+    /* ==========================================================================
+       GEOMETRY DASH MINI-GAME SECTION
+       ========================================================================== */
+    .game-section {
+      background: #0f172a;
+      border-radius: var(--radius);
+      padding: 2rem;
+      border: 2px solid #1e293b;
+      margin-bottom: 4rem;
+      color: #f8fafc;
+      text-align: center;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+    }
+    .game-header {
+      margin-bottom: 1.5rem;
+    }
+    .game-header h2 {
+      font-family: 'Merriweather', serif;
+      color: #38bdf8;
+      font-size: 1.6rem;
+      margin-bottom: 0.5rem;
+    }
+    .game-header p {
+      color: #94a3b8;
+      font-size: 0.9rem;
+    }
+    #gameWrapper {
+      position: relative;
+      width: 100%;
+      max-width: 800px;
+      margin: 0 auto;
+      background-color: var(--game-bg);
+      border-radius: 8px;
+      overflow: hidden;
+      border: 4px solid #334155;
+      box-shadow: inset 0 0 40px rgba(0,0,0,0.6);
+    }
+    #gameCanvas {
+      display: block;
+      width: 100%;
+      height: auto;
+      background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
+    }
+    .game-controls {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1.25rem;
+      flex-wrap: wrap;
+    }
+    .game-btn {
+      background: #38bdf8;
+      color: #0f172a;
+      border: none;
+      padding: 0.7rem 1.5rem;
+      font-size: 0.95rem;
+      font-weight: 700;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.15s, transform 0.1s;
+    }
+    .game-btn:hover {
+      background: #7dd3fc;
+      transform: translateY(-1px);
+    }
+    .game-btn:active {
+      transform: translateY(1px);
+    }
+    .game-btn.danger {
+      background: #ef4444;
+      color: white;
+    }
+    .game-btn.danger:hover {
+      background: #f87171;
+    }
+    .game-stats {
+      display: flex;
+      justify-content: space-around;
+      max-width: 600px;
+      margin: 1rem auto 0;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #38bdf8;
+    }
+    .difficulty-select {
+      background: #334155;
+      color: #fff;
+      border: 1px solid #475569;
+      padding: 0.6rem 1rem;
+      border-radius: 6px;
+      font-weight: 600;
+      outline: none;
+    }
+
     /* Video Player Modal */
     .video-modal {
       display: none;
@@ -284,13 +382,13 @@
     <section class="helplines-grid">
       <div class="helpline-card">
         <h3>Alzheimer's Association Helpline</h3>
-        <p>Free, confidential round-the-clock support, emotional crises, and clinician advice in 200+ languages.</p>
+        <p>Free, confidential support, emotional crisis management, and clinician advice in 200+ languages.</p>
         <a href="tel:18002723900" class="call-btn">📞 Call 1-800-272-3900</a>
       </div>
 
       <div class="helpline-card">
         <h3>Caregiver Action Network (CAN)</h3>
-        <p>Support for family caregivers feeling isolated, managing exhaustion, or seeking guidance.</p>
+        <p>Support for family caregivers feeling isolated, managing exhaustion, or seeking resource navigation.</p>
         <a href="tel:18552273640" class="call-btn">📞 Call 1-855-227-3640</a>
       </div>
 
@@ -307,9 +405,9 @@
       <div class="tip-card">
         <h3>1. De-escalate Sundowning</h3>
         <ul>
-          <li><strong>Light Therapy:</strong> Turn on indoor lights before dusk so shadows do not trigger hallucinations.</li>
+          <li><strong>Light Therapy:</strong> Turn on bright indoor lights before dusk so shadows do not trigger disorientation.</li>
           <li><strong>Consistent Sounds:</strong> Play low-tempo ambient music or familiar radio shows starting at 4:30 PM.</li>
-          <li><strong>Avoid Debates:</strong> Do not argue with memory lapses; validate their emotion instead.</li>
+          <li><strong>Avoid Debates:</strong> Do not argue with memory lapses; validate their underlying emotion instead.</li>
         </ul>
       </div>
 
@@ -317,8 +415,8 @@
         <h3>2. Protect Against Burnout</h3>
         <ul>
           <li><strong>The 5-Minute Box Breathing:</strong> Inhale 4s, hold 4s, exhale 4s, hold 4s. Resets high heart rates.</li>
-          <li><strong>Set Guilt-Free Boundaries:</strong> Accept that good care does not mean perfection.</li>
-          <li><strong>Micro-Breaks:</strong> Step into another room for 3 minutes to regain emotional composure.</li>
+          <li><strong>Set Guilt-Free Boundaries:</strong> Accept that good care does not mean flawless care.</li>
+          <li><strong>Micro-Breaks:</strong> Step into another room for 3 minutes to recover your emotional composure.</li>
         </ul>
       </div>
 
@@ -327,7 +425,7 @@
         <ul>
           <li><strong>Adult Day Centers:</strong> Provides structured sensory activities while you get 6 hours of personal rest.</li>
           <li><strong>In-Home Companions:</strong> Hire an aide for two afternoons a week to catch up on sleep or errands.</li>
-          <li><strong>Local Circles:</strong> Join peer caregiver meetings to swap practical coping advice.</li>
+          <li><strong>Local Circles:</strong> Join peer caregiver meetings to swap practical, localized coping tips.</li>
         </ul>
       </div>
     </section>
@@ -345,6 +443,32 @@
       </div>
 
       <div class="video-grid" id="videoGrid"></div>
+    </section>
+
+    <!-- SECTION 4: GEOMETRY DASH MINI-GAME -->
+    <section class="game-section">
+      <div class="game-header">
+        <h2>🎮 Caregiver Oasis Dash</h2>
+        <p>A simple, rhythmic distraction designed to rest your mind. Tap <strong>SPACEBAR</strong> or tap the screen to jump.</p>
+      </div>
+      
+      <div id="gameWrapper">
+        <canvas id="gameCanvas" width="800" height="300"></canvas>
+      </div>
+
+      <div class="game-stats">
+        <div>Score: <span id="gameScore">0</span></div>
+        <div>High Score: <span id="highScore">0</span></div>
+      </div>
+
+      <div class="game-controls">
+        <select id="difficulty" class="difficulty-select">
+          <option value="easy">Gentle Speed (Easy)</option>
+          <option value="normal" selected>Rhythm Speed (Normal)</option>
+          <option value="hard">Adrenaline Speed (Hard)</option>
+        </select>
+        <button class="game-btn" id="startBtn">Start / Restart</button>
+      </div>
     </section>
 
   </div>
@@ -368,7 +492,7 @@
     // Curated educational YouTube video list
     const videos = [
       {
-        id: "HpYMmGjA0u4", // Teepa Snow on handling agitation
+        id: "HpYMmGjA0u4",
         title: "How to Respond When Dementia Patients Get Anxious or Defensive",
         category: "Communication",
         channel: "Teepa Snow's Positive Approach",
@@ -376,7 +500,7 @@
         thumb: "https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?auto=format&fit=crop&w=600&q=80"
       },
       {
-        id: "2Wc8jU9tO-Q", // Handling sundowning
+        id: "2Wc8jU9tO-Q",
         title: "Sundowning Syndrome: Causes, Triggers, and Calming Rituals",
         category: "Sundowning",
         channel: "Dementia Care Central",
@@ -384,7 +508,7 @@
         thumb: "https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?auto=format&fit=crop&w=600&q=80"
       },
       {
-        id: "inpok4MKVLM", // Guided meditation for stress
+        id: "inpok4MKVLM",
         title: "10-Minute Guided Mindfulness Meditation for Caregiver Exhaustion",
         category: "Self-Care",
         channel: "The Mindful Movement",
@@ -392,7 +516,7 @@
         thumb: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=600&q=80"
       },
       {
-        id: "fVzQkG3F4Z8", // Bathing & hygiene resistance
+        id: "fVzQkG3F4Z8",
         title: "Techniques for Bathing and Hygiene Without Triggering Distress",
         category: "Communication",
         channel: "Alzheimer's Society",
@@ -400,7 +524,7 @@
         thumb: "https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=600&q=80"
       },
       {
-        id: "O-6f5wQXTV8", // Preventing burnout
+        id: "O-6f5wQXTV8",
         title: "Recognizing the Warning Signs of Caregiver Burnout Before It Hits",
         category: "Self-Care",
         channel: "Family Caregiver Alliance",
@@ -408,7 +532,7 @@
         thumb: "https://images.unsplash.com/photo-1499209974431-9dddcece7f88?auto=format&fit=crop&w=600&q=80"
       },
       {
-        id: "dQw4w9WgXcQ", // Safe sleep tips
+        id: "dQw4w9WgXcQ",
         title: "Nighttime Wandering: Securing the Home for Patient Safety",
         category: "Sundowning",
         channel: "Caregiving Essentials",
@@ -473,6 +597,272 @@
     });
 
     renderVideos();
+
+    // ==========================================================================
+    // GEOMETRY DASH CODE LOGIC
+    // ==========================================================================
+    const canvas = document.getElementById("gameCanvas");
+    const ctx = canvas.getContext("2d");
+    const startBtn = document.getElementById("startBtn");
+    const difficultySelect = document.getElementById("difficulty");
+    const scoreVal = document.getElementById("gameScore");
+    const highScoreVal = document.getElementById("highScore");
+
+    let isPlaying = false;
+    let score = 0;
+    let highScore = localStorage.getItem("dash_high") || 0;
+    highScoreVal.innerText = highScore;
+
+    let player = {
+      x: 80,
+      y: 220,
+      size: 32,
+      vy: 0,
+      gravity: 0.6,
+      jumpForce: -11.5,
+      isGrounded: true,
+      rotAngle: 0
+    };
+
+    let obstacles = [];
+    let obstaclesPassed = [];
+    let frameCount = 0;
+    let gameSpeed = 5;
+    let obstacleInterval = 90;
+
+    function resetGame() {
+      score = 0;
+      scoreVal.innerText = score;
+      player.y = 220;
+      player.vy = 0;
+      player.rotAngle = 0;
+      player.isGrounded = true;
+      obstacles = [];
+      obstaclesPassed = [];
+      frameCount = 0;
+
+      const difficulty = difficultySelect.value;
+      if (difficulty === "easy") {
+        gameSpeed = 4;
+        player.gravity = 0.5;
+        player.jumpForce = -10.5;
+        obstacleInterval = 100;
+      } else if (difficulty === "normal") {
+        gameSpeed = 6.5;
+        player.gravity = 0.68;
+        player.jumpForce = -12.5;
+        obstacleInterval = 80;
+      } else {
+        gameSpeed = 9;
+        player.gravity = 0.8;
+        player.jumpForce = -14.5;
+        obstacleInterval = 65;
+      }
+    }
+
+    function spawnObstacle() {
+      // Create triangular spike obstacles
+      obstacles.push({
+        x: canvas.width,
+        y: canvas.height - 50,
+        width: 25,
+        height: 35
+      });
+    }
+
+    function drawFloor() {
+      ctx.fillStyle = "#334155";
+      ctx.fillRect(0, canvas.height - 50, canvas.width, 50);
+      ctx.strokeStyle = "#475569";
+      ctx.lineWidth = 4;
+      ctx.beginPath();
+      ctx.moveTo(0, canvas.height - 50);
+      ctx.lineTo(canvas.width, canvas.height - 50);
+      ctx.stroke();
+    }
+
+    function update() {
+      // Player physics
+      player.vy += player.gravity;
+      player.y += player.vy;
+
+      // Floor collision check
+      const floorY = canvas.height - 50 - player.size;
+      if (player.y >= floorY) {
+        player.y = floorY;
+        player.vy = 0;
+        player.isGrounded = true;
+        // Snap rotation angle to closest 90 deg when landing
+        player.rotAngle = Math.round(player.rotAngle / 90) * 90;
+      } else {
+        // Spin while in midair
+        player.rotAngle += 4.5 * (gameSpeed / 5);
+      }
+
+      // Move & clean obstacles
+      for (let i = obstacles.length - 1; i >= 0; i--) {
+        const obs = obstacles[i];
+        obs.x -= gameSpeed;
+
+        // Collision Check (AABB vs Triangle simplified bounding)
+        if (
+          player.x < obs.x + obs.width &&
+          player.x + player.size > obs.x &&
+          player.y < obs.y + obs.height &&
+          player.y + player.size > obs.y
+        ) {
+          gameOver();
+          return;
+        }
+
+        // Score generation
+        if (obs.x + obs.width < player.x && !obstaclesPassed.includes(obs)) {
+          obstaclesPassed.push(obs);
+          score++;
+          scoreVal.innerText = score;
+          if (score > highScore) {
+            highScore = score;
+            highScoreVal.innerText = highScore;
+            localStorage.setItem("dash_high", highScore);
+          }
+        }
+
+        if (obs.x + obs.width < 0) {
+          obstacles.splice(i, 1);
+        }
+      }
+
+      // Spawning loop
+      frameCount++;
+      if (frameCount % obstacleInterval === 0) {
+        // Add random variance to spacing
+        if (Math.random() > 0.3) {
+          spawnObstacle();
+        }
+      }
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      // Draw scrolling background gridlines
+      ctx.strokeStyle = "rgba(71, 85, 105, 0.15)";
+      ctx.lineWidth = 1;
+      const step = 40;
+      const offset = (frameCount * gameSpeed) % step;
+      for (let x = -offset; x < canvas.width; x += step) {
+        ctx.beginPath();
+        ctx.moveTo(x, 0);
+        ctx.lineTo(x, canvas.height - 50);
+        ctx.stroke();
+      }
+
+      // Draw obstacles
+      ctx.fillStyle = "#ef4444";
+      obstacles.forEach(obs => {
+        ctx.beginPath();
+        ctx.moveTo(obs.x, obs.y + obs.height);
+        ctx.lineTo(obs.x + obs.width / 2, obs.y);
+        ctx.lineTo(obs.x + obs.width, obs.y + obs.height);
+        ctx.closePath();
+        ctx.fill();
+        ctx.strokeStyle = "#b91c1c";
+        ctx.lineWidth = 2;
+        ctx.stroke();
+      });
+
+      // Draw Player (with Rotation)
+      ctx.save();
+      ctx.translate(player.x + player.size / 2, player.y + player.size / 2);
+      ctx.rotate((player.rotAngle * Math.PI) / 180);
+      
+      // Outer Cube Shadow / Aura
+      ctx.shadowColor = "#38bdf8";
+      ctx.shadowBlur = 10;
+
+      // Draw main cube
+      ctx.fillStyle = "var(--game-cube)";
+      ctx.fillRect(-player.size / 2, -player.size / 2, player.size, player.size);
+      
+      // Face details (Classic Geometry Dash smiley style)
+      ctx.shadowBlur = 0; // Turn off shadow blur for facial lines
+      ctx.fillStyle = "#1e293b";
+      // Eyes
+      ctx.fillRect(-10, -10, 6, 8);
+      ctx.fillRect(4, -10, 6, 8);
+      // Smile
+      ctx.fillRect(-10, 4, 20, 4);
+
+      ctx.restore();
+
+      // Floor
+      drawFloor();
+
+      // Start screen indicator
+      if (!isPlaying) {
+        ctx.fillStyle = "rgba(15, 23, 42, 0.7)";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = "#ffffff";
+        ctx.font = "bold 20px 'Inter', sans-serif";
+        ctx.fillText("Click 'Start' Below to Play", canvas.width / 2 - 130, canvas.height / 2);
+      }
+    }
+
+    function gameLoop() {
+      if (!isPlaying) return;
+      update();
+      draw();
+      requestAnimationFrame(gameLoop);
+    }
+
+    function gameOver() {
+      isPlaying = false;
+      ctx.fillStyle = "rgba(239, 68, 68, 0.2)";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = "#f87171";
+      ctx.font = "bold 32px 'Inter', sans-serif";
+      ctx.fillText("GAME OVER", canvas.width / 2 - 95, canvas.height / 2 - 10);
+      ctx.font = "16px 'Inter', sans-serif";
+      ctx.fillStyle = "#ffffff";
+      ctx.fillText("Tap 'Start / Restart' below to run again", canvas.width / 2 - 135, canvas.height / 2 + 25);
+    }
+
+    function jump() {
+      if (player.isGrounded && isPlaying) {
+        player.vy = player.jumpForce;
+        player.isGrounded = false;
+      }
+    }
+
+    // Keyboard Controller
+    window.addEventListener("keydown", (e) => {
+      if (e.code === "Space" || e.code === "ArrowUp") {
+        e.preventDefault(); // Prevents page scrolling down when pressing spacebar
+        jump();
+      }
+    });
+
+    // Touch screen/mouse click jumping
+    canvas.addEventListener("touchstart", (e) => {
+      e.preventDefault();
+      jump();
+    });
+    canvas.addEventListener("mousedown", () => {
+      jump();
+    });
+
+    startBtn.addEventListener("click", () => {
+      resetGame();
+      isPlaying = true;
+      gameLoop();
+      canvas.focus();
+    });
+
+    // Pre-draw instructions screen initially
+    drawFloor();
+    ctx.fillStyle = "#ffffff";
+    ctx.font = "bold 20px 'Inter', sans-serif";
+    ctx.fillText("Press Start to Begin", canvas.width / 2 - 90, canvas.height / 2);
   </script>
 </body>
 </html>
